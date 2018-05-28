@@ -1,4 +1,4 @@
-<events xmlns="http://xmlns.opennms.org/xsd/eventconf">
+<events xmlns="https://xmlns.opennms.org/xsd/eventconf">
     <!-- Start of SonicWall Traps -->
     <!-- Start of SonicWall MIB: SONICWALL-FIREWALL-TRAP-MIB -->
     <event>
