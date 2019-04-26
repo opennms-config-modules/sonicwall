@@ -11,28 +11,12 @@
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="sonicSyslogServerEntry" label="sonicSyslogServerEntry" resourceLabel="${index}">
-      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
-   <resourceType name="sonicWirelessApEntry" label="sonicWirelessApEntry" resourceLabel="${sonicApModel} (${index})">
-      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
-   <resourceType name="sonicWirelessVapEntry" label="sonicWirelessVapEntry" resourceLabel="${sonicWirelessVapStatus} (${index})">
-      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
    <resourceType name="sonicWirelessStaEntry" label="sonicWirelessStaEntry" resourceLabel="${sonicStaStatus} (${index})">
       <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
       <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
    </resourceType>
-   <resourceType name="sonicwallFwZoneEntry" label="sonicwallFwZoneEntry" resourceLabel="${sonicZoneSecurity} (${index})">
-      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
-      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
-   </resourceType>
    <group name="sonicwallFwStats" ifType="ignore">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.1" instance="0" alias="soniMaxConnCachEntr" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.1" instance="0" alias="soniMaxConnCachEntr" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.2" instance="0" alias="sonCurrConnCachEntr" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.3" instance="0" alias="sonicCurrentCPUUtil" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.4" instance="0" alias="sonicCurrentRAMUtil" type="gauge32"/>
@@ -42,50 +26,24 @@
    </group>
    <group name="sonicIfStatTable" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.8.1.1" instance="sonicIfStatEntry" alias="sonicIfIndex" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.8.1.2" instance="sonicIfStatEntry" alias="sonicIfUsage" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.8.1.3" instance="sonicIfStatEntry" alias="sonicIfThroughput" type="integer"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.8.1.2" instance="sonicIfStatEntry" alias="sonicIfUsage" type="gauge"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.1.8.1.3" instance="sonicIfStatEntry" alias="sonicIfThroughput" type="gauge"/>
    </group>
    <group name="sonicSAStatTable" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.1" instance="sonicSAStatEntry" alias="sonicIpsecSaIndex" type="counter32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.2" instance="sonicSAStatEntry" alias="soniSAStatPeerGatew" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.3" instance="sonicSAStatEntry" alias="sonSAStaSrcAddrBegi" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.4" instance="sonicSAStatEntry" alias="sonSAStatSrcAddrEnd" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.5" instance="sonicSAStatEntry" alias="sonSAStaDstAddrBegi" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.6" instance="sonicSAStatEntry" alias="sonSAStatDstAddrEnd" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.7" instance="sonicSAStatEntry" alias="soniSAStatCreatTime" type="octetstring"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.8" instance="sonicSAStatEntry" alias="sonSAStaEncrPktCoun" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.9" instance="sonicSAStatEntry" alias="sonSAStaEncByteCoun" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.10" instance="sonicSAStatEntry" alias="sonSAStaDecrPktCoun" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.11" instance="sonicSAStatEntry" alias="sonSAStaDecByteCoun" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.12" instance="sonicSAStatEntry" alias="sonSAStaInFraPktCou" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.13" instance="sonicSAStatEntry" alias="soSAStaOutFraPktCou" type="counter32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.2.1.1.1.14" instance="sonicSAStatEntry" alias="sonicSAStatUserName" type="octetstring"/>
    </group>
    <group name="sonicwallSensorsTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.1" instance="sonicwallSensorsEntry" alias="sonicwaSensorsIndex" type="integer32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.2" instance="sonicwallSensorsEntry" alias="sonicwallSensorsId" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.1" instance="sonicwallSensorsEntry" alias="sonicwaSensorsIndex" type="gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.2" instance="sonicwallSensorsEntry" alias="sonicwallSensorsId" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.3" instance="sonicwallSensorsEntry" alias="sonicwSensorsDevice" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.4" instance="sonicwallSensorsEntry" alias="sonicwaSensorsValue" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.4" instance="sonicwallSensorsEntry" alias="sonicwaSensorsValue" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.3.3.1.1.5" instance="sonicwallSensorsEntry" alias="sonicwalSensorsUnit" type="octetstring"/>
-   </group>
-   <group name="sonicwallFwSyslogSetting" ifType="ignore">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.1" instance="0" alias="sonicSyslogFacility" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.2" instance="0" alias="soniSysloOverrSetti" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.3" instance="0" alias="sonicSyslogFormat" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.4" instance="0" alias="sonicSyslogID" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.5" instance="0" alias="sonSysEveRatLimEnab" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.6" instance="0" alias="sonSyslEvenRateLimi" type="gauge32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.7" instance="0" alias="sonSysDatRatLimEnab" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.8" instance="0" alias="sonSyslDataRateLimi" type="gauge32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.1.9" instance="0" alias="sonicSysloNDPPEnabl" type="string"/>
-   </group>
-   <group name="sonicwallFwSyslogServer" ifType="ignore">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.2.1" instance="0" alias="sonicSysloMaxServer" type="integer"/>
-   </group>
-   <group name="sonicSyslogServerTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.2.2.1.1" instance="sonicSyslogServerEntry" alias="soniSysloServeIndex" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.2.2.1.2" instance="sonicSyslogServerEntry" alias="sonicSysloServeAddr" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.2.2.1.3" instance="sonicSyslogServerEntry" alias="sonicSysloServePort" type="integer"/>
    </group>
    <group name="sonicwallFwSyslogStatistic" ifType="ignore">
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.4.3.1" instance="0" alias="sonicSyslogMessage" type="counter32"/>
@@ -96,100 +54,15 @@
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.5.2" instance="0" alias="soDpSslConCouHigWat" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.5.3" instance="0" alias="sonDpiSslConCounMax" type="gauge32"/>
    </group>
-   <group name="sonicWirelessSpInfo" ifType="ignore">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.1" instance="0" alias="sonicWireleSpVersio" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.2" instance="0" alias="sonicWirelSpNVersio" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.3" instance="0" alias="sonicWirelSpNvVersi" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.4" instance="0" alias="soniWirelSpNdrVersi" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.5" instance="0" alias="sonicWirelSpAcVersi" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.1.6" instance="0" alias="sonicWireleApNumber" type="gauge32"/>
-   </group>
-   <group name="sonicWirelessApTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.1" instance="sonicWirelessApEntry" alias="sonicApIndex" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.2" instance="sonicWirelessApEntry" alias="sonicApName" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.3" instance="sonicWirelessApEntry" alias="sonicApModel" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.4" instance="sonicWirelessApEntry" alias="sonicApCountryCode" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.5" instance="sonicWirelessApEntry" alias="sonicApRetainSettin" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.6" instance="sonicWirelessApEntry" alias="sonicApRfManagement" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.7" instance="sonicWirelessApEntry" alias="sonicApInterface" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.8" instance="sonicWirelessApEntry" alias="sonicApIpAddr" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.9" instance="sonicWirelessApEntry" alias="sonicApNetMask" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.10" instance="sonicWirelessApEntry" alias="sonicApPhysicAddres" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.11" instance="sonicWirelessApEntry" alias="sonicApMgmt" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.12" instance="sonicWirelessApEntry" alias="sonicApStatus" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.13" instance="sonicWirelessApEntry" alias="sonicApProfile" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.14" instance="sonicWirelessApEntry" alias="sonicApUpTime" type="timeticks"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.15" instance="sonicWirelessApEntry" alias="sonicApRadio0Bssid" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.16" instance="sonicWirelessApEntry" alias="sonicApRadio0SSID" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.17" instance="sonicWirelessApEntry" alias="sonicApRadio0Enable" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.18" instance="sonicWirelessApEntry" alias="sonicApRadio0Status" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.19" instance="sonicWirelessApEntry" alias="sonicApRadio0Mode" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.20" instance="sonicWirelessApEntry" alias="soniApRadi0ChanWidt" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.21" instance="sonicWirelessApEntry" alias="sonicApRadio0Channe" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.22" instance="sonicWirelessApEntry" alias="sonApRad0ShoGuarInt" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.23" instance="sonicWirelessApEntry" alias="sonicApRadio0Aggreg" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.24" instance="sonicWirelessApEntry" alias="sonicApRadio0Mimo" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.25" instance="sonicWirelessApEntry" alias="soniApRadi0AuthType" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.26" instance="sonicWirelessApEntry" alias="soniApRadi0WpaCiphe" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.27" instance="sonicWirelessApEntry" alias="sonicApRadio0WpaPsk" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.28" instance="sonicWirelessApEntry" alias="sonicApRadio0Acl" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.29" instance="sonicWirelessApEntry" alias="soniApRadi0BroaSsid" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.30" instance="sonicWirelessApEntry" alias="sonApRad0TxPoweLeve" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.31" instance="sonicWirelessApEntry" alias="soniApRadi0StaTimeo" type="gauge32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.32" instance="sonicWirelessApEntry" alias="sonicApRadio1Bssid" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.33" instance="sonicWirelessApEntry" alias="sonicApRadio1SSID" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.34" instance="sonicWirelessApEntry" alias="sonicApRadio1Enable" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.35" instance="sonicWirelessApEntry" alias="sonicApRadio1Status" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.36" instance="sonicWirelessApEntry" alias="sonicApRadio1Mode" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.37" instance="sonicWirelessApEntry" alias="soniApRadi1ChanWidt" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.38" instance="sonicWirelessApEntry" alias="sonicApRadio1Channe" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.39" instance="sonicWirelessApEntry" alias="sonApRad1ShoGuarInt" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.40" instance="sonicWirelessApEntry" alias="sonicApRadio1Aggreg" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.41" instance="sonicWirelessApEntry" alias="sonicApRadio1Mimo" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.42" instance="sonicWirelessApEntry" alias="soniApRadi1AuthType" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.43" instance="sonicWirelessApEntry" alias="soniApRadi1WpaCiphe" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.44" instance="sonicWirelessApEntry" alias="sonicApRadio1WpaPsk" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.45" instance="sonicWirelessApEntry" alias="sonicApRadio1Acl" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.46" instance="sonicWirelessApEntry" alias="soniApRadi1BroaSsid" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.47" instance="sonicWirelessApEntry" alias="sonApRad1TxPoweLeve" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.48" instance="sonicWirelessApEntry" alias="soniApRadi1StaTimeo" type="gauge32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.49" instance="sonicWirelessApEntry" alias="soniApRadiuServeIp1" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.50" instance="sonicWirelessApEntry" alias="soniApRadiServPort1" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.51" instance="sonicWirelessApEntry" alias="soniApRadiServSecr1" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.52" instance="sonicWirelessApEntry" alias="soniApRadiuServeIp2" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.53" instance="sonicWirelessApEntry" alias="soniApRadiServPort2" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.2.1.54" instance="sonicWirelessApEntry" alias="soniApRadiServSecr2" type="octetstring"/>
-   </group>
-   <group name="sonicWirelessVapTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.1" instance="sonicWirelessVapEntry" alias="sonicWireleVapIndex" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.2" instance="sonicWirelessVapEntry" alias="sonicWirelesVapName" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.3" instance="sonicWirelessVapEntry" alias="sonicWirelVapStatus" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.4" instance="sonicWirelessVapEntry" alias="sonicWirelesVapSsid" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.5" instance="sonicWirelessVapEntry" alias="soniWireVapBroaSsid" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.6" instance="sonicWirelessVapEntry" alias="sonicWirelVapVlanId" type="integer32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.7" instance="sonicWirelessVapEntry" alias="sonicWirelVapAuthen" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.8" instance="sonicWirelessVapEntry" alias="sonicWirelVapCipher" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.9" instance="sonicWirelessVapEntry" alias="soniWireVapPassPhra" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.10" instance="sonicWirelessVapEntry" alias="sonWirVapRadServIp1" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.11" instance="sonicWirelessVapEntry" alias="sonWirVapRadSerPor1" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.12" instance="sonicWirelessVapEntry" alias="sonWirVapRadSerSec1" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.13" instance="sonicWirelessVapEntry" alias="sonWirVapRadServIp2" type="ipaddress"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.14" instance="sonicWirelessVapEntry" alias="sonWirVapRadSerPor2" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.15" instance="sonicWirelessVapEntry" alias="sonWirVapRadSerSec2" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.16" instance="sonicWirelessVapEntry" alias="sonicWirelVapRefere" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.17" instance="sonicWirelessVapEntry" alias="soniWireVapMaxClien" type="gauge32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.3.1.18" instance="sonicWirelessVapEntry" alias="soniWireVapCurClien" type="gauge32"/>
-   </group>
    <group name="sonicWirelessStaTable" ifType="all">
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.1" instance="sonicWirelessStaEntry" alias="sonicStaPhysAddress" type="octetstring"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.2" instance="sonicWirelessStaEntry" alias="sonicStaApName" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.3" instance="sonicWirelessStaEntry" alias="sonicStaChannel" type="integer32"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.4" instance="sonicWirelessStaEntry" alias="sonicStaAid" type="integer"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.5" instance="sonicWirelessStaEntry" alias="sonicStaIpAddress" type="ipaddress"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.3" instance="sonicWirelessStaEntry" alias="sonicStaChannel" type="gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.4" instance="sonicWirelessStaEntry" alias="sonicStaAid" type="gauge"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.6" instance="sonicWirelessStaEntry" alias="sonicStaStatus" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.7" instance="sonicWirelessStaEntry" alias="sonicStaRadioType" type="string"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.8" instance="sonicWirelessStaEntry" alias="sonicStaSsid" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.9" instance="sonicWirelessStaEntry" alias="sonicStaVlanId" type="integer32"/>
+      <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.9" instance="sonicWirelessStaEntry" alias="sonicStaVlanId" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.10" instance="sonicWirelessStaEntry" alias="sonicStaConnRate" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.11" instance="sonicWirelessStaEntry" alias="sonicStaTxRate" type="gauge32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.12" instance="sonicWirelessStaEntry" alias="sonicStaSignaStreng" type="gauge32"/>
@@ -212,20 +85,5 @@
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.29" instance="sonicWirelessStaEntry" alias="sonicStaCtrlPktsTx" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.30" instance="sonicWirelessStaEntry" alias="sonicStaDataPktsTx" type="counter32"/>
       <mibObj oid=".1.3.6.1.4.1.8741.1.3.6.4.1.31" instance="sonicWirelessStaEntry" alias="sonicStaConnSta" type="gauge32"/>
-   </group>
-   <group name="sonicwallFwZoneTable" ifType="all">
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.1" instance="sonicwallFwZoneEntry" alias="sonicZoneName" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.2" instance="sonicwallFwZoneEntry" alias="sonicZoneSecurity" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.3" instance="sonicwallFwZoneEntry" alias="sonicZoneInterfaces" type="octetstring"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.4" instance="sonicwallFwZoneEntry" alias="sonicZoneIfTrust" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.5" instance="sonicwallFwZoneEntry" alias="sonicZoneCFS" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.6" instance="sonicwallFwZoneEntry" alias="sonicZoneClientAv" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.7" instance="sonicwallFwZoneEntry" alias="sonicZoneClientCf" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.8" instance="sonicwallFwZoneEntry" alias="sonicZoneGwAv" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.9" instance="sonicwallFwZoneEntry" alias="sonicZoneAntiSpywar" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.10" instance="sonicwallFwZoneEntry" alias="sonicZoneIps" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.11" instance="sonicwallFwZoneEntry" alias="sonicZoneAppControl" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.12" instance="sonicwallFwZoneEntry" alias="sonicZoneSslControl" type="string"/>
-      <mibObj oid=".1.3.6.1.4.1.8741.1.3.7.1.1.1.13" instance="sonicwallFwZoneEntry" alias="sonicZoneSslvpAcces" type="string"/>
    </group>
 </datacollection-group>
