@@ -25,3 +25,26 @@ cp ${HOME}/opennms-config-workspace/sonicwall/events/*.xml ${OPENNMS_HOME}/etc/e
 ----
 <event-file>events/sonicwall.events.xml</event-file>
 ----
+
+
+=== Data Collection
+
+.Install datacollection configuration
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/sonicwall/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
+----
+
+.Include in datacollection-config.xml
+[source, xml]
+----
+<include-collection dataCollectionGroup="SONICWALL-FIREWALL-IP-STATISTICS-MIB"/>
+----
+
+=== Graph Report Definitions
+
+.Install graph report definitions
+[source, bash]
+----
+cp ${HOME}/opennms-config-workspace/sonicwall/snmp-graph.properties.d/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
+----
